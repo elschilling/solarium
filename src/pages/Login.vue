@@ -12,7 +12,9 @@
         <a @click.prevent="handleLogin('google')" class="btn-primary btn-google-auth" tabindex="0">
           <font-awesome-icon :icon="['fab', 'google']" class="logo" />Google
         </a>
-        <a class="btn-primary btn-github-auth" tabindex="0"> <font-awesome-icon :icon="['fab', 'github']" class="logo" />GitHub </a>
+        <a @click.prevent="handleLogin('github')" class="btn-primary btn-github-auth" tabindex="0">
+          <font-awesome-icon :icon="['fab', 'github']" class="logo" />GitHub
+        </a>
       </div>
       <span class="separator">
         <span class="line"></span>

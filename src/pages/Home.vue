@@ -21,15 +21,18 @@
             </router-link>
             <font-awesome-icon :icon="['fas', 'qrcode']" size="xl" />
           </div>
-          <div class="solarium-row views-row">
-            <p class="solarium-views">{{ solarium.views.view }}</p>
-            <font-awesome-icon :icon="['fas', 'eye']" />
+          <div class="solarium-row">
+            <div></div>
+            <div class="views-col">
+              <p class="solarium-views">{{ solarium.views.view }}</p>
+              <font-awesome-icon :icon="['fas', 'eye']" />
+            </div>
           </div>
         </div>
       </div>
     </div>
     <div class="footer">
-      <p>Created by {{ solarium.email }} at {{ solarium.createdData }}</p>
+      <p>Created by {{ solarium.email }} on {{ solarium.createdData }}</p>
       <p>{{ solarium.lastEdit }}</p>
     </div>
   </div>
@@ -55,7 +58,7 @@ onMounted(async () => {
 
 const formattedSolariums = computed(() => {
   if (solariums.value) {
-    let data = solariums.value
+    let data = solariums.value.sort((a, b) => Number(new Date(b.last_edit)) - Number(new Date(a.last_edit)))
     return data.map((doc) => {
       let createdData = format(new Date(doc.created_at), 'MM/dd/yyyy')
       let lastEdit = 'Last edited ' + formatDistanceToNow(new Date(doc.last_edit))
