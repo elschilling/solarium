@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Sunflower:wght@500&family=Ubuntu:wght@300;400;700&display=swap');
+* {
+  box-sizing: border-box;
+}
+body {
+  background: #dcdcdc;
+  margin: 0;
+  font-family: 'Ubuntu', sans-serif;
+  color: grey;
+  height: 100vh;
+}
+#app {
+  height: 100%;
+}
+.board {
+  background: #e8e9ec;
+  margin: 30px auto;
+  width: 600px;
+  padding: 0px;
+  box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.2);
+}
+
+.container {
+  text-align: center;
+  background: #e8e9ec;
+  /* margin: 30px auto; */
+  width: 600px;
+  padding: 20px;
+  /* box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.2); */
+}
+.container h1 {
+  letter-spacing: 5px;
+}
+.container .separator {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+}
+.container .separator .line {
+  border: 1px solid #e3e3e3;
+  flex-grow: 1;
+  margin: auto;
+}
+.container .separator .text {
+  margin: 0 10px;
+  color: #64666a;
+}
+.container p {
+  text-align: left;
+  font-weight: 100;
+  font-size: 12px;
+  color: #111;
+  pointer-events: none;
+}
+.btn-primary {
+  font-family: 'Ubuntu';
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s;
+  height: 40px;
+  color: white;
+  background: black;
+  cursor: pointer;
+  border: none;
+  width: 100%;
+  font-size: 1em;
+  margin-bottom: 10px;
+}
+.btn-primary:disabled {
+  background: grey;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+a:visited {
+  color: black;
+}
+a:link {
+  color: black;
+}
+h1 {
+  color: black;
+}
+h2 {
+  font-weight: 300;
+  color: black;
+}
+.auth-buttons {
+  margin: 2rem 0 1rem 0;
+  display: flex;
+  justify-content: center;
+  -moz-column-gap: 17px;
+  column-gap: 17px;
+}
+.btn-google-auth {
+  background: #4285f4;
+}
+a.btn-google-auth:hover {
+  text-decoration: none;
+  background: #254681;
+}
+.btn-github-auth {
+  background: #4c4c4c;
+}
+a.btn-github-auth:hover {
+  background: #2c2c2c;
+  text-decoration: none;
+}
+.logo {
+  margin-right: 1rem;
+  font-size: 25px;
+}
+.fields-row {
+  display: flex;
+  width: 100%;
+  margin: 10px auto;
+  /* padding: 10px; */
+  gap: 10px;
+  flex-direction: column;
+}
+.inputBox {
+  /* width: 100%; */
+  position: relative;
+}
+.inputBox input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  color: black;
+  font-size: 1em;
+  background: rgba(0, 0, 0, 0.1);
+}
+.inputBox span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 10px;
+  pointer-events: none;
+  font-size: 1em;
+  color: rgba(0, 0, 0, 0.8);
+  transition: all 0.4s;
+}
+.inputBox input:not(:placeholder-shown) ~ span {
+  background: #e8e9ec;
+  color: black;
+  translate: 3px -7px;
+  font-size: 0.65em;
+  padding: 2px 8px;
+}
+.links {
+  display: flex;
+  font-size: 0.875rem;
+  flex-direction: column;
+  gap: 10px;
+}
+.board {
+  outline: 2px solid transparent;
+  transition: outline 0.2s;
+}
+.board:hover {
+  outline: 2px solid rgba(0, 0, 0, 0.08);
+}
+.solarium-row {
+  margin-top: -15px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 15px;
+  align-items: center;
+  color: black;
+}
+.solarium-views {
+  padding: 5px;
+  font-size: 11px;
+}
+.views-row {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.solarium-row .solarium-url {
+  width: 100%;
+  text-align: left;
+  padding: 20px;
+  overflow-wrap: anywhere;
+  font-size: 11px;
+  font-weight: 100;
+}
+.subcontainer {
+  display: flex;
+}
+.thumb-container {
+  width: 200px;
+}
+.thumb-container img {
+  width: 100%;
+}
+.info {
+  position: relative;
+  width: 360px;
+}
+.footer {
+  padding: 0px 20px;
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 11px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background: #cacbcd;
+  height: 32px;
+}
