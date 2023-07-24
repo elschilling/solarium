@@ -13,21 +13,27 @@
             <input v-model="form.path" tabindex="0" type="text" label="Password" placeholder=" " required />
             <span>Path</span>
           </div>
-          <p>The URL will be: http://solarium.vercel.app/{{ form.path }}</p>
+          <p>The URL will be: {{ localPath }}/{{ form.path }}</p>
           <div class="inputBox" v-if="modelVisible">
             <input v-model="form.model_url" type="text" disabled placeholder=" " />
             <span>3D model</span>
           </div>
         </div>
         <UploadModel v-show="!modelVisible" :database="supabase" :user="user.id" @uploaded="handleUploaded" />
-        <!-- <Settings :params="form" v-if="modelVisible" /> -->
         <Settings v-if="modelVisible" />
         <button v-if="modelVisible" @click.prevent="modelVisible = false" class="btn-primary">Upload new model</button>
-        <LoadModel v-show="modelVisible" mode="edit" :model="model" :params="defaultParams" />
         <button class="btn-primary" :disabled="!form.name || !form.path || !form.model_url">Save</button>
       </form>
     </div>
   </div>
+  <div class="advise" v-if="modelVisible">
+    <p>Adjust parameters via <b>Settings</b> menu below and click Save to create Solarium</p>
+  </div>
+  <div class="board wrapper" v-show="modelVisible">
+    <div class="four-by-three aspect-ratio"></div>
+    <LoadModel v-show="modelVisible" mode="edit" :model="model" :params="defaultParams" />
+  </div>
+  <div class="space"></div>
 </template>
 
 <script setup>
@@ -49,6 +55,7 @@ const { user } = useAuthUser()
 const form = ref({})
 const model = ref({})
 const modelVisible = ref(false)
+const localPath = ref(window.location.origin)
 const defaultParams = ref({
   editMode: true,
   showControls: true,
@@ -77,7 +84,7 @@ const defaultParams = ref({
 
   sunIntensity: 8,
   ambientIntensity: 1.7,
-  shadowBias: -0.0001,
+  shadowBias: -0.0009,
   sunHelper: true,
 })
 let file

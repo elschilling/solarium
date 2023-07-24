@@ -113,7 +113,6 @@ a.btn-github-auth:hover {
   text-decoration: none;
 }
 .logo {
-  margin-right: 1rem;
   font-size: 25px;
 }
 .fields-row {
@@ -215,6 +214,30 @@ a.btn-github-auth:hover {
   justify-content: space-between;
   width: 100%;
   background: #cacbcd;
+}
+.advise {
+  padding: 10px;
+  text-align: center;
+  background: #ffce00;
+  color: black;
+}
+.advise p {
+  margin: 0;
+}
+.space {
+  height: 20px;
+}
+.wrapper {
+  position: relative;
+  width: 1200px;
+}
+.four-by-three.aspect-ratio {
+  padding-bottom: 75%;
+}
+@media (max-width: 1200px) {
+  .wrapper {
+    width: 100%;
+  }
 }
 @media (max-width: 600px) {
   .board {

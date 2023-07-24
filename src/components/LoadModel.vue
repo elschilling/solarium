@@ -55,9 +55,11 @@ async function main(model) {
 
 <style>
 #edit {
-  width: 100%;
-  height: 500px;
-  margin-bottom: 10px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 #view {
   position: absolute;

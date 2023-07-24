@@ -1,6 +1,5 @@
 <template>
   <h2>Parameters</h2>
-  <p>Adjust the parameters via <b>Settings</b> menu and click save to create Solarium</p>
   <div class="fields-row">
     <h3>Base</h3>
     <div class="inputBox">

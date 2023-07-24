@@ -31,14 +31,6 @@ import HelloWorld from './components/HelloWorld.vue'
 
 <script setup>
 import '@/assets/styles.css'
-// document.addEventListener('keydown', (event) => {
-//   // console.log(event)
-//   if (event.code === 'NumpadEnter') {
-//     console.log('num pad enter')
-//     event.preventDefault()
-//     return false
-//   }
-// })
 </script>
 
 <template>
@@ -47,8 +39,10 @@ import '@/assets/styles.css'
   </div>
 </template>
 
-<style>
+<style scoped>
 .router {
-  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 </style>

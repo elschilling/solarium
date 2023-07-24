@@ -19,7 +19,7 @@
           <Settings v-if="modelVisible" />
           <button v-if="modelVisible" @click.prevent="handleNewModel" class="btn-primary">Upload new model</button>
           <UploadModel v-if="!modelVisible" :database="database" :user="user.id" @uploaded="handleUploaded" />
-          <LoadModel v-show="modelVisible" mode="edit" :model="model" :params="viewParams" />
+          <!-- <LoadModel v-show="modelVisible" mode="edit" :model="model" :params="viewParams" /> -->
         </div>
         <p v-show="form.model">Adjust the settings and click save to update Solarium</p>
         <button class="btn-primary" :disabled="!form.name || !form.path || !form.model_url">Save</button>
@@ -30,6 +30,11 @@
   <div v-else class="board">
     <div class="container">Solarium not found.</div>
   </div>
+  <div class="board wrapper" v-show="modelVisible">
+    <div class="four-by-three aspect-ratio"></div>
+    <LoadModel v-show="modelVisible" mode="edit" :model="model" :params="viewParams" />
+  </div>
+  <div class="space"></div>
 </template>
 
 <script setup>
