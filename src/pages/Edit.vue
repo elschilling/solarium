@@ -14,7 +14,7 @@
             <span>Path</span>
           </div>
         </div>
-        <p>The URL will be: http://solarium.vercel.app/{{ form.path }}</p>
+        <p>The URL will be: {{ localPath }}/{{ form.path }}</p>
         <div v-show="model">
           <Settings v-if="modelVisible" />
           <button v-if="modelVisible" @click.prevent="handleNewModel" class="btn-primary">Upload new model</button>
@@ -57,6 +57,7 @@ const solarium = ref({})
 const viewParams = ref()
 const form = ref({})
 const modelVisible = ref(true)
+const localPath = ref(window.location.origin)
 let file = {}
 let url
 
