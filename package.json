@@ -17,6 +17,7 @@
     "@supabase/supabase-js": "^2.26.0",
     "buffer": "^6.0.3",
     "date-fns": "^2.30.0",
+    "qrcode.vue": "^3.4.0",
     "suncalc": "^1.9.0",
     "vue": "^3.3.4",
     "vue-router": "^4.2.4",

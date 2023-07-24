@@ -77,6 +77,8 @@ function createBase(params) {
     arrowO.position.x = 0
 
     base.add(arrowN, arrowS, arrowL, arrowO)
+
+    base.rotation.y = -Math.PI / 2
   }
   createDirections()
   base.update = () => {

@@ -24,20 +24,15 @@
 
 <script setup>
 import useAuthUser from '@/composables/UseAuthUser'
-const { user, isLoggedIn } = useAuthUser()
-// console.log('isLoggedIn', isLoggedIn.value)
-// console.log('user', user.value)
+const { user } = useAuthUser()
 </script>
 
 <style>
-/* .top {
-  height: 220px;
-} */
 .top a:visited {
   color: black;
 }
 .sunbar {
-  /* background: linear-gradient(to bottom, rgba(132, 185, 230, 1) 0%,rgba(157, 124, 115, 1) 100%); */
+  background: linear-gradient(to bottom, rgba(132, 185, 230, 1) 0%, rgb(255, 150, 0) 100%);
   height: 115px;
   z-index: -1;
 }
@@ -109,6 +104,6 @@ nav img {
   margin-left: -40px;
   margin-right: 30px;
   border-radius: 100%;
-  width: 35px;
+  width: 30px;
 }
 </style>

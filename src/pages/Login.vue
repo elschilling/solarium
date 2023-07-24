@@ -68,4 +68,8 @@ const handleLogin = async (provider) => {
 }
 </script>
 
-<style></style>
+<style scoped>
+.logo {
+  margin-right: 10px;
+}
+</style>

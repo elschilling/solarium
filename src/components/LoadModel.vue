@@ -81,7 +81,7 @@ async function main(model) {
   left: 50%;
   top: 50%;
   translate: -50% -50%;
-  background: conic-gradient(orange 3.6deg, transparent 0deg);
+  background: conic-gradient(#ffce00 3.6deg, transparent 0deg);
   display: flex;
   flex-direction: column;
   align-items: center;

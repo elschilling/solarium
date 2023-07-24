@@ -65,10 +65,14 @@ function createGUI(params, ambientLight, sunLight, sunHelper, shadowCameraHelper
       sunPath.updateLocation()
       updateParameters()
     })
-    locationFolder.add(params, 'northOffset').onChange(() => {
-      sunPath.updateNorth()
-      updateParameters()
-    })
+    locationFolder
+      .add(params, 'northOffset')
+      .min(-360)
+      .max(360)
+      .onChange(() => {
+        sunPath.updateNorth()
+        updateParameters()
+      })
     locationFolder.close()
 
     const skyFolder = gui.addFolder('Sky')
