@@ -1,6 +1,6 @@
 import { GUI } from 'three/examples/jsm/libs/lil-gui.module.min.js'
 
-function createGUI(params, ambientLight, sunLight, sunHelper, shadowCameraHelper, sunPath, controls, cameraControl, base) {
+function createGUI(params, ambientLight, sunLight, sunHelper, shadowCameraHelper, sunPath, controls, base) {
   const gui_container = document.querySelector('#gui-container')
   const gui = new GUI({ autoPlace: false })
   gui.domElement.id = 'gui_container'

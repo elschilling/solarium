@@ -1,71 +1,76 @@
-import { createRouter, createWebHistory } from "vue-router"
-import useAuthUser from "@/composables/UseAuthUser"
+import { createRouter, createWebHistory } from 'vue-router'
+import useAuthUser from '@/composables/UseAuthUser'
 
 const routes = [
   {
-    name: "EmailConfirmation",
-    path: "/email-confirmation",
-    component: () => import("@/pages/EmailConfirmation.vue"),
+    name: 'EmailConfirmation',
+    path: '/email-confirmation',
+    component: () => import('@/pages/EmailConfirmation.vue'),
   },
   {
-    name: "Home",
-    path: "/",
-    component: () => import("@/pages/Home.vue"),
+    name: 'Home',
+    path: '/',
+    component: () => import('@/pages/Home.vue'),
   },
   {
-    name: "Me",
+    name: 'Me',
     meta: {
       requiresAuth: true,
     },
-    path: "/me",
-    component: () => import("@/pages/Me.vue"),
+    path: '/me',
+    component: () => import('@/pages/Me.vue'),
   },
   {
-    name: "New",
+    name: 'New',
     meta: {
       requiresAuth: true,
     },
-    path: "/new",
-    component: () => import("@/pages/New.vue"),
+    path: '/new',
+    component: () => import('@/pages/New.vue'),
   },
   {
-    name: "Solarium",
-    path: "/:path",
-    component: () => import("@/pages/Solarium.vue"),
+    name: 'Solarium',
+    path: '/:path',
+    component: () => import('@/pages/Solarium.vue'),
     props: true,
   },
   {
-    name: "Edit",
+    name: 'Edit',
     meta: {
       requiresAuth: true,
     },
-    path: "/e/:path",
-    component: () => import("@/pages/Edit.vue"),
+    path: '/e/:path',
+    component: () => import('@/pages/Edit.vue'),
     props: true,
   },
   {
-    name: "Login",
-    path: "/login",
-    component: () => import("@/pages/Login.vue"),
+    name: 'Login',
+    path: '/login',
+    component: () => import('@/pages/Login.vue'),
   },
   {
-    name: "ForgotPassword",
-    path: "/forgotPassword",
-    component: () => import("@/pages/ForgotPassword.vue"),
+    name: 'ForgotPassword',
+    path: '/forgotPassword',
+    component: () => import('@/pages/ForgotPassword.vue'),
   },
   {
-    name: "Logout",
-    path: "/logout",
+    name: 'Ifc',
+    path: '/ifc',
+    component: () => import('@/pages/Ifc.vue'),
+  },
+  {
+    name: 'Logout',
+    path: '/logout',
     beforeEnter: async () => {
       const { logout } = useAuthUser()
       await logout()
-      return { name: "Home" }
+      return { name: 'Home' }
     },
   },
   {
-    name: "Register",
-    path: "/register",
-    component: () => import("@/pages/Register.vue"),
+    name: 'Register',
+    path: '/register',
+    component: () => import('@/pages/Register.vue'),
   },
 ]
 
@@ -78,8 +83,8 @@ router.beforeEach((to) => {
   // here we check it the user is logged in
   // if they aren't and the route requries auth we redirect to the login page
   const { isLoggedIn } = useAuthUser()
-  if (!isLoggedIn() && to.meta.requiresAuth && !Object.keys(to.query).includes("fromEmail")) {
-    return { name: "Login" }
+  if (!isLoggedIn() && to.meta.requiresAuth && !Object.keys(to.query).includes('fromEmail')) {
+    return { name: 'Login' }
   }
 })
 

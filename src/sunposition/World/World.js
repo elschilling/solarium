@@ -1,4 +1,4 @@
-import { loadHouse } from './components/house/house.js'
+import { loadModel } from './components/model.js'
 import { createBirdCamera } from './components/birdCamera.js'
 import { createFirstPersonCamera } from './components/firstPersonCamera.js'
 import { createBase } from './components/base.js'
@@ -14,31 +14,22 @@ import { Resizer } from './systems/Resizer.js'
 import { Loop } from './systems/Loop.js'
 import { SunPath } from './systems/SunPath.js'
 import { DynamicSky } from './systems/DynamicSky.js'
-import { createPlayer } from './systems/player.js'
+// import { createPlayer } from './systems/player.js'
 
-const skyControl = {
-  turbidity: 10,
-  rayleigh: 0.425,
-  mieCoefficient: 0.012,
-  mieDirectionalG: 1,
-  exposure: 6.99,
-}
-
-const cameraControl = {
-  firstPerson() {
-    activeCamera = firstPersonCamera
-    loop.camera = firstPersonCamera
-    resizer.camera = firstPersonCamera
-    resizer.onResize()
-  },
-  birdView() {
-    console.log('button bug')
-    activeCamera = birdCamera
-    loop.camera = birdCamera
-    resizer.camera = birdCamera
-    resizer.onResize()
-  },
-}
+// const cameraControl = {
+//   firstPerson() {
+//     activeCamera = firstPersonCamera
+//     loop.camera = firstPersonCamera
+//     resizer.camera = firstPersonCamera
+//     resizer.onResize()
+//   },
+//   birdView() {
+//     activeCamera = birdCamera
+//     loop.camera = birdCamera
+//     resizer.camera = birdCamera
+//     resizer.onResize()
+//   },
+// }
 
 let activeCamera, birdCamera, firstPersonCamera
 let renderer
@@ -83,16 +74,16 @@ class World {
 
     scene.add(sky.sky, ambientLight, sunHelper, sunShadowHelper, sunPath.sunPathLight)
     if (params.showControls) {
-      gui = createGUI(params, ambientLight, sunLight, sunHelper, sunShadowHelper, sunPath, controls, cameraControl, base)
+      gui = createGUI(params, ambientLight, sunLight, sunHelper, sunShadowHelper, sunPath, controls, base)
     }
     resizer = new Resizer(container, activeCamera, renderer)
   }
 
-  async init(model_url) {
-    const { house } = await loadHouse(model_url)
-    scene.add(house)
-    const player = createPlayer(firstPersonCamera, house)
-    loop.updatables.push(player)
+  async init(model) {
+    const { loadedModel } = await loadModel(model)
+    scene.add(loadedModel)
+    // const player = createPlayer(firstPersonCamera, house)
+    // loop.updatables.push(player)
   }
   resize() {
     resizer.refresh()
@@ -100,7 +91,6 @@ class World {
   start() {
     loop.start()
   }
-
   stop() {
     loop.stop()
   }

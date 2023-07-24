@@ -5,14 +5,14 @@
         <div class="sun">
           <font-awesome-icon :icon="['fas', 'tree-city']" />
         </div>
-        <div class="titlebar">
-         SOLARIUM
-        </div>
+        <div class="titlebar">SOLARIUM</div>
       </div>
     </router-link>
     <nav>
       <ul>
-        <router-link v-if="user" to="/me"><li><img :src=user.user_metadata.avatar_url>Profile</li></router-link>
+        <router-link v-if="user" to="/me"
+          ><li><img :src="user.user_metadata.avatar_url" />Profile</li></router-link
+        >
         <router-link v-if="!user" to="/login"><li>Sign in</li></router-link>
         <router-link v-if="!user" to="/register"><li>Sign up for free</li></router-link>
         <router-link v-if="user" to="/new"><li>Create</li></router-link>
@@ -23,8 +23,8 @@
 </template>
 
 <script setup>
-import useAuthUser from "@/composables/UseAuthUser";
-const { user, isLoggedIn } = useAuthUser();
+import useAuthUser from '@/composables/UseAuthUser'
+const { user, isLoggedIn } = useAuthUser()
 // console.log('isLoggedIn', isLoggedIn.value)
 // console.log('user', user.value)
 </script>
@@ -47,19 +47,20 @@ const { user, isLoggedIn } = useAuthUser();
   position: relative;
   width: 110px;
   height: 100px;
-  background: #ff9244;
+  background: #ffce00;
   border-radius: 100%;
-  border: 5px solid black;
+  /* outline: 5px solid black; */
   margin: auto;
   top: 25px;
   font-size: 50px;
   transition: all 0.5s;
   z-index: 1;
 }
-.sunbar:hover .sun{
+.sunbar:hover .sun {
   background: #ffce00;
   top: 15px;
-  filter: drop-shadow(0 0 5em orange);
+  box-shadow: 0 0 20px orange;
+  outline: 0;
 }
 .titlebar {
   position: relative;
@@ -100,7 +101,7 @@ nav li {
 }
 nav li:hover {
   color: black;
-  background: #ff9244;
+  background: #ffce00;
 }
 nav img {
   /* position: fixed; */
