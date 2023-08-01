@@ -134,7 +134,7 @@ class SunPath {
   }
 
   updateNorth() {
-    this.sunPathLight.rotation.y = -MathUtils.degToRad(this.params.northOffset)
+    this.sunPathLight.rotation.y = -MathUtils.degToRad(this.params.northOffset + 90)
   }
 
   updateLocation() {
